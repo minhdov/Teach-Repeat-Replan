@@ -14,9 +14,10 @@ find_package(catkin REQUIRED COMPONENTS
   cmake_utils
 )
 
+# Add system_lib to the list of required components
 catkin_package(
-  CATKIN_DEPENDS roscpp sensor_msgs nav_msgs std_msgs visualization_msgs tf pose_utils
-  DEPENDS system_lib
+  CATKIN_DEPENDS roscpp sensor_msgs nav_msgs std_msgs visualization_msgs tf pose_utils system_lib
+  DEPENDS
 )
 
 find_package(Eigen3 REQUIRED)

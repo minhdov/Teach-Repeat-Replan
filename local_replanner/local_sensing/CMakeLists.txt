@@ -22,7 +22,7 @@ if(ENABLE_CUDA)
   SET(CUDA_PROPAGATE_HOST_FLAGS OFF)
 
   find_package(OpenCV REQUIRED)
-  find_package(Eigen3 REQUIRED)
+  find_package(Eigen3 REQUIRED)  # Add this line to find Eigen3
   find_package(Boost REQUIRED COMPONENTS system filesystem)
 
   find_package(catkin REQUIRED COMPONENTS
@@ -31,7 +31,7 @@ if(ENABLE_CUDA)
     cfg/local_sensing_node.cfg
   )
   catkin_package(
-      DEPENDS OpenCV Eigen Boost
+      DEPENDS OpenCV Eigen3 Boost  # Add Eigen3 to the list of dependencies
       CATKIN_DEPENDS roscpp roslib image_transport pcl_ros
   #INCLUDE_DIRS include
       LIBRARIES depth_render_cuda
@@ -66,7 +66,7 @@ else(ENABLE_CUDA)
       roscpp roslib cmake_modules pcl_ros sensor_msgs geometry_msgs nav_msgs quadrotor_msgs)
   
   catkin_package(
-      DEPENDS Eigen
+      DEPENDS Eigen3  # Add Eigen3 to the list of dependencies
       CATKIN_DEPENDS roscpp roslib pcl_ros
   )
 
